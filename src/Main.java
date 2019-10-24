@@ -1,0 +1,26 @@
+package execution;
+
+import thread.*;
+import usine.*;
+import surveillance.*;
+
+import java.util.ArrayList;
+import java.util.stream.Stream;
+
+
+public class Main {
+
+	public static void main(String[] args) {
+		ListeGobelins liste = new ListeGobelins(); //Crée la liste des gobelins, une ressource synchronisé
+		
+        System.out.println("<<<<<<<<<<<<<<<<<< L'USINE À GOBELIN >>>>>>>>>>>>>>>>>>");
+        
+        //TODO Premier pas, mais il va falloir transformer tout ça en jolies threads
+        for(int i=0;i<100;i++) {
+	        liste.genere();
+	        liste.evalue();
+	        liste.afficheEtatZones();
+        }
+	}
+
+}
