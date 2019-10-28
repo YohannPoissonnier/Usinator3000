@@ -1,4 +1,4 @@
-package usine;
+package Usine;
 
 public enum Statut {
 	NON_APPROUVE("Non approuvé"),

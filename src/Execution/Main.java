@@ -1,4 +1,4 @@
-package execution;
+package Execution;
 
 import thread.*;
 import usine.*;

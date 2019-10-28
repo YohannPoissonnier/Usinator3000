@@ -1,4 +1,4 @@
-package usine;
+package Usine;
 
 public enum Zone {
 	USINE("Usine"),

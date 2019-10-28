@@ -1,4 +1,4 @@
-package usine;
+package Usine;
 
 
 //TODO transformer cette classe selon l'énoncé du TP3
@@ -104,6 +104,7 @@ public class Gobelin {
         System.out.println("Zone: " + this.getZone()); 
         System.out.println(""); 
 	}
+	//public void modifierEtatGobelin(GobelinStrategie){}
 	public void degatDeplacement(int degat) {
 		this.pvs-=degat;
         System.out.println("Le gobelin " + this.getId()+ " reçoit "+ degat + " points de dégât lors de son déplacement.");
