@@ -3,7 +3,7 @@ package Usine;
 import Strategie.GobelinStrategie;
 
 //TODO transformer cette classe selon l'énoncé du TP3
-public class Gobelin {
+public class Gobelin{
 	private int id = 1;
 	private static int idCompteur = 0;
 	private String type;

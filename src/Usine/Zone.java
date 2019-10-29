@@ -8,7 +8,6 @@ public enum Zone {
 
 	private String nom = "";
 	
-	//Constructeur
 	Zone(String name){
 	    this.nom = name;
 	}

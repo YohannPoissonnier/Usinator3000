@@ -1,18 +1,21 @@
 package Thread;
 
+
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Stream;
 
-import surveillance.*;
-import usine.Gobelin;
-import usine.Zone;
+import Surveillance.*;
+import Usine.Gobelin;
+import Usine.UsineGobelin;
+import Usine.Zone;
 
 public class ListeGobelins {
 	private CopyOnWriteArrayList<Gobelin> gobelins = new CopyOnWriteArrayList<>();	//ArrayList assurant une intégrité des données lors de la synchro
 	private Gobelin gobelin = null;
 	private String genererGobelinType;
-
+	private UsineGobelin usine = new UsineGobelin();
+	public SurveillanceGobelin  surveillance= new SurveillanceGobelin();
 	public CopyOnWriteArrayList<Gobelin> getGobelins() {
 		return gobelins;
 	}
