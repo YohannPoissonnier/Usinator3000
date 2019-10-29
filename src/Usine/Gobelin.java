@@ -106,7 +106,7 @@ public class Gobelin{
         System.out.println(""); 
 	}
 	public void modifierEtatGobelin(GobelinStrategie l){
-		modifierEtatGobelin(l);
+		l.modifierEtatGobelin(this);
 	}
 	public void degatDeplacement(int degat) {
 		this.pvs-=degat;

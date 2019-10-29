@@ -13,6 +13,8 @@ public class SurveillanceGobelin {
 		ecouteurs.add(obsrv);
 	}
 	public void sonnerAlarme(Gobelin f) {
-		
+		for (Obsrv_Gobelin ecouteur : ecouteurs) {
+                   ecouteur.alarme(f);
+              }
 	}
 }

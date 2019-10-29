@@ -15,7 +15,8 @@ public class ListeGobelins {
 	private Gobelin gobelin = null;
 	private String genererGobelinType;
 	private UsineGobelin usine = new UsineGobelin();
-	public SurveillanceGobelin  surveillance= new SurveillanceGobelin();
+	public SurveillanceGobelin surveillance = new SurveillanceGobelin();
+	
 	public CopyOnWriteArrayList<Gobelin> getGobelins() {
 		return gobelins;
 	}
