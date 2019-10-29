@@ -8,9 +8,9 @@ public class Obsrv_GobelinPvs {
 	public Obsrv_GobelinPvs() {
 		
 	}
-	public void alarme(Gobelin f) {	
-		if(f.getPvs() == 0 && f.getZone() != Zone.FOSSE ) {
-			f.setStatut(Statut.REFUSE);
-			System.out.println("Le gobelin " + f.getId()+" est " + f.getStatut() + " et est envoyé dans la fosse.");	}
+	public void alarme(Gobelin gobelin) {	
+		if(gobelin.getPvs() == 0 && gobelin.getZone() != Zone.FOSSE ) {
+			gobelin.setStatut(Statut.REFUSE);
+			System.out.println("Le gobelin " + gobelin.getId()+" est " + gobelin.getStatut() + " et est envoyé dans la fosse.");	}
 	}
 }

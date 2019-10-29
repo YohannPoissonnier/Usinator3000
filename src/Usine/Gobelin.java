@@ -105,8 +105,8 @@ public class Gobelin{
         System.out.println("Zone: " + this.getZone()); 
         System.out.println(""); 
 	}
-	public void modifierEtatGobelin(GobelinStrategie l){
-		l.modifierEtatGobelin(this);
+	public void modifierEtatGobelin(GobelinStrategie strategie){
+		strategie.modifierEtatGobelin(this);
 	}
 	public void degatDeplacement(int degat) {
 		this.pvs-=degat;

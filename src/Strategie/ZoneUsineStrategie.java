@@ -1,12 +1,15 @@
 package Strategie;
 
 import Usine.Gobelin;
+import Usine.Zone;
 
-public class ZoneUsineStrategie {
+public class ZoneUsineStrategie implements GobelinStrategie {
 	public ZoneUsineStrategie() {
 		
 	}
-	public void modifierEtatGobelin(Gobelin f) {
-		
+	public void modifierEtatGobelin(Gobelin gobelin) {
+		if(gobelin.getZone() == Zone.USINE) {
+			
+		}
 	}
 }
