@@ -25,7 +25,7 @@ public class UsineGobelin {
 			case "musicien": System.out.println("5");
 					gobelin = new GobelinMusicien(0, 5, 0, 10, "musicien");
 					break;
-		}
+			}
 		}
 		
 		return gobelin;

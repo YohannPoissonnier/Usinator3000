@@ -10,8 +10,10 @@ public class ThrAffiche extends Thread{
 ;	}
 	public void run() {
 		try {
-			liste.afficheEtatZones();
-			sleep(delai);
+			while(!interrupted()) {
+				liste.afficheEtatZones();
+				sleep(delai);
+			}
 		} catch(InterruptedException e) {}
 	}
 }

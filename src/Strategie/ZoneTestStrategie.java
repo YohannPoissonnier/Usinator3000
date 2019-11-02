@@ -11,11 +11,11 @@ public class ZoneTestStrategie implements GobelinStrategie {
 	public void modifierEtatGobelin(Gobelin gobelin) {
 		if(gobelin.getZone() == Zone.TEST && gobelin.getPvs() > 5){
 			gobelin.setStatut(Statut.APPROUVE);
-			gobelin.setPvs(gobelin.getPvs() - 2);
+			gobelin.degatDeplacement(2);
 		}
-		else {
+		else if(gobelin.getZone() == Zone.TEST && gobelin.getPvs() < 5){
 			gobelin.setStatut(Statut.REFUSE);
-			gobelin.setPvs(gobelin.getPvs() - 5);
+			gobelin.degatDeplacement(5);
 		}
 	}
 }

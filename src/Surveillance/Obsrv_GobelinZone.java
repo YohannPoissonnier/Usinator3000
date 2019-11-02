@@ -3,7 +3,7 @@ package Surveillance;
 import Strategie.*;
 import Usine.Gobelin;
 
-public class Obsrv_GobelinZone{
+public class Obsrv_GobelinZone implements Obsrv_Gobelin{
 	public Obsrv_GobelinZone() {
 		
 	}

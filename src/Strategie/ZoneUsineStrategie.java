@@ -10,7 +10,7 @@ public class ZoneUsineStrategie implements GobelinStrategie {
 	public void modifierEtatGobelin(Gobelin gobelin) {
 		if(gobelin.getZone() == Zone.USINE) {
 			gobelin.setZone(Zone.TEST);
-			gobelin.setPvs(gobelin.getPvs() - 2);
+			gobelin.degatDeplacement(2);
 		}
 	}
 }

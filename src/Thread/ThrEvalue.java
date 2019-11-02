@@ -12,12 +12,11 @@ public class ThrEvalue extends Thread{
 	}
 	public void run() {
 		try {
-			liste.evalue();
-			sleep(delai);
+			while(liste.getGobelins().isEmpty()) {
+				liste.evalue();
+				sleep(delai);
+			}
+			return;
 		} catch(InterruptedException e) {}
-		if(liste.getGobelins().isEmpty()) {
-			
-		}
 	}
-	
 }

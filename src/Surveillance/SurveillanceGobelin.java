@@ -12,9 +12,7 @@ public class SurveillanceGobelin {
 	public void connecterObservateur(Obsrv_Gobelin obsrv) {
 		ecouteurs.add(obsrv);
 	}
-	public void sonnerAlarme(Gobelin f) {
-		for (Obsrv_Gobelin ecouteur : ecouteurs) {
-                   ecouteur.alarme(f);
-              }
+	public void sonnerAlarme(Gobelin gobelin) {
+		ecouteurs.forEach(element->element.alarme(gobelin));
 	}
 }

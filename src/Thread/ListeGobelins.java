@@ -1,14 +1,12 @@
 package Thread;
 
-
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.Stream;
 
 import Surveillance.*;
-import Usine.Gobelin;
-import Usine.UsineGobelin;
-import Usine.Zone;
+import Usine.*;
 
 public class ListeGobelins {
 	private CopyOnWriteArrayList<Gobelin> gobelins = new CopyOnWriteArrayList<>();	//ArrayList assurant une intégrité des données lors de la synchro
@@ -24,30 +22,58 @@ public class ListeGobelins {
 	public void setGobelins(CopyOnWriteArrayList<Gobelin> gobelins) {
 		this.gobelins = gobelins;
 	}
-
+	
 	//initialisation des alarmes
 	public ListeGobelins() {
+		surveillance.connecterObservateur(new Obsrv_GobelinZone());
+		surveillance.connecterObservateur(new Obsrv_GobelinPvs());
 	}
 	
 	//Génère les gobelins de façon aléatoire selon le pattern factory
-	public void genere(){
-		gobelin = new Gobelin();
+	public synchronized void genere(){
+				
+		switch ((int)(Math.random() * (5-0)) + 0) {
+		case 0: genererGobelinType = "combattant";
+				break;
+		case 1: genererGobelinType = "explorateur";
+				break;
+		case 2: genererGobelinType = "demineur";
+				break;
+		case 3: genererGobelinType = "chasseur";
+				break;
+		case 4: genererGobelinType = "musicien";
+				break;
+		}
+		gobelin = usine.getGobelin(genererGobelinType);
 		gobelins.add(gobelin);
+		
 		if(gobelin != null) {
 			System.out.println("---------------- Création d'un nouveau gobelin ----------------");
 			gobelin.afficheInfos();
 			System.out.println("---------------------------------------------------------------");
-		//	notifyAll();
+			notifyAll();
 		}
 	}
 	//Évalue les gobelin selon le pattern strategy
-	public void evalue() {
+	public synchronized void evalue() {
 		System.out.println("Évalue les gobelins");
+		if(gobelins.stream().count() == Long.valueOf(0)) {
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		gobelins.forEach(element->element.modifierEtatGobelin(surveillance.sonnerAlarme(element)));
 	}
 	//affiche les zones
-	public void afficheEtatZones() {		
+	public synchronized  void afficheEtatZones() {		
 		if(gobelins.stream().count() == Long.valueOf(0)) {
-			//Thread en attente
+			try {
+				wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		else {
 			System.out.println("----------------------- STATISTIQUES -----------------------------");
