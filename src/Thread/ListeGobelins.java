@@ -57,6 +57,7 @@ public class ListeGobelins {
 	//Évalue les gobelin selon le pattern strategy
 	public synchronized void evalue() {
 		System.out.println("Évalue les gobelins");
+		surveillance.sonnerAlarme(gobelin);	
 		if(gobelins.stream().count() == Long.valueOf(0)) {
 			try {
 				wait();
@@ -64,9 +65,9 @@ public class ListeGobelins {
 				e.printStackTrace();
 			}
 		}
-		//Le probleme est la je sais pas comment faire
-		gobelins.forEach(element->element.modifierEtatGobelin(surveillance.sonnerAlarme(element)));
-		//
+		else {
+			surveillance.sonnerAlarme(gobelin);
+		}
 	}
 	//affiche les zones
 	public synchronized  void afficheEtatZones() {		

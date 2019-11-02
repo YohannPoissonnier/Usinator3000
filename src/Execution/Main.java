@@ -15,7 +15,12 @@ public class Main {
 		
         System.out.println("<<<<<<<<<<<<<<<<<< L'USINE À GOBELIN >>>>>>>>>>>>>>>>>>");
        
-       
+      //TODO Premier pas, mais il va falloir transformer tout ça en jolies threads
+        for(int i=0;i<100;i++) {
+	        liste.genere();
+	        liste.evalue();
+	        liste.afficheEtatZones();
+        }
 	}
 
 }
