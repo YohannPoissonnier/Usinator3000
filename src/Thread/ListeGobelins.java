@@ -64,7 +64,9 @@ public class ListeGobelins {
 				e.printStackTrace();
 			}
 		}
+		//Le probleme est la je sais pas comment faire
 		gobelins.forEach(element->element.modifierEtatGobelin(surveillance.sonnerAlarme(element)));
+		//
 	}
 	//affiche les zones
 	public synchronized  void afficheEtatZones() {		
