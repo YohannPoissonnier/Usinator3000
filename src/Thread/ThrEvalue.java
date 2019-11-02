@@ -11,12 +11,22 @@ public class ThrEvalue extends Thread{
 		this.liste = liste;
 	}
 	public void run() {
+		long plop;
 		try {
-			while(liste.getGobelins().isEmpty()) {
-				liste.evalue();
-				sleep(delai);
+			while(!interrupted()) {
+				
+				
+				plop = liste.getGobelins().stream().filter(x -> (x.getZone() == Zone.USINE || x.getZone() == Zone.TEST)).filter(i -> i != null).count();
+				plop = liste.getGobelins().stream().filter(x -> (x.getZone() == Zone.USINE || x.getZone() == Zone.TEST)).filter(i -> i != null).count();
+				if(plop == Long.valueOf(0))
+				{
+					return;
+				}
+				else {
+					liste.evalue();
+					sleep(delai);
+				}
 			}
-			return;
 		} catch(InterruptedException e) {}
 	}
 }

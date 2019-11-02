@@ -1,7 +1,6 @@
 package Strategie;
 
 import Usine.Gobelin;
-import Usine.Statut;
 import Usine.Zone;
 
 public class ZoneTestStrategie implements GobelinStrategie {

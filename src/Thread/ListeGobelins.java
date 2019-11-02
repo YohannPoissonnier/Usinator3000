@@ -1,9 +1,8 @@
 package Thread;
 
-import java.util.ArrayList;
-import java.util.Random;
+
 import java.util.concurrent.CopyOnWriteArrayList;
-import java.util.stream.Stream;
+
 
 import Surveillance.*;
 import Usine.*;
@@ -57,7 +56,6 @@ public class ListeGobelins {
 	//Évalue les gobelin selon le pattern strategy
 	public synchronized void evalue() {
 		System.out.println("Évalue les gobelins");
-		surveillance.sonnerAlarme(gobelin);	
 		if(gobelins.stream().count() == Long.valueOf(0)) {
 			try {
 				wait();
@@ -66,7 +64,15 @@ public class ListeGobelins {
 			}
 		}
 		else {
-			surveillance.sonnerAlarme(gobelin);
+			for(Gobelin gob : gobelins) {
+				if (gob.getZone()==Zone.USINE) {
+					surveillance.sonnerAlarme(gob);
+				}
+				 if (gob.getZone()==Zone.TEST) {
+					 surveillance.sonnerAlarme(gob);
+				}
+			}
+			notifyAll();
 		}
 	}
 	//affiche les zones
